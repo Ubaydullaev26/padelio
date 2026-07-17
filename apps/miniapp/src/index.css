@@ -1,0 +1,33 @@
+@import 'tailwindcss';
+
+/* Тема Telegram → дизайн-токены (docs/16). Fallback — светлая тема. */
+:root {
+  --bg: var(--tg-bg-color, #ffffff);
+  --text: var(--tg-text-color, #111827);
+  --hint: var(--tg-hint-color, #6b7280);
+  --link: var(--tg-link-color, #2563eb);
+  --card: var(--tg-secondary-bg-color, #f3f4f6);
+  --accent: #7cb518; /* падел-мяч; в тёмной теме ярче */
+}
+
+:root[data-scheme='dark'] {
+  --accent: #c6e84a;
+}
+
+@theme {
+  --color-bg: var(--bg);
+  --color-fg: var(--text);
+  --color-hint: var(--hint);
+  --color-link: var(--link);
+  --color-card: var(--card);
+  --color-accent: var(--accent);
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
