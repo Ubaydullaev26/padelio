@@ -39,25 +39,39 @@ Padelio — это сервис, который соединяет игроко�
 
 ---
 
-## 🗂 Планируемая структура репозитория
-
-Когда начнётся разработка, репозиторий будет организован так (монорепо):
+## 🗂 Структура репозитория (монорепо, pnpm + Turborepo)
 
 ```
 padelio/
-├── docs/          # Продуктовая и техническая документация (уже есть)
+├── docs/            # Продуктовая и техническая документация
 ├── apps/
-│   ├── bot/       # Telegram-бот (точка входа, уведомления)
-│   ├── miniapp/   # Telegram Mini App (клиентский интерфейс)
-│   ├── admin/     # Веб-панель платформы и клубов
-│   └── api/       # Backend API
-├── packages/      # Общие модули (типы, утилиты, UI-кит)
-├── infra/         # Инфраструктура, CI/CD, миграции
-└── .github/       # Workflows, шаблоны issue/PR
+│   ├── api/         # Backend API (NestJS) — ядро бронирования готово
+│   ├── bot/         # Telegram-бот (grammY) — заглушка, Sprint 1.4
+│   ├── miniapp/     # Telegram Mini App (React) — заглушка, Sprint 1.5
+│   └── admin/       # Панель платформы — заглушка
+├── packages/
+│   └── shared/      # Домен: статусы брони, конечный автомат, деньги
+├── infra/
+│   ├── docker-compose.yml   # Postgres 16 + Redis для разработки
+│   ├── migrations/          # SQL-миграции (EXCLUDE-констрейнт против double booking)
+│   └── seed/                # Тестовые данные
+└── .github/workflows/ci.yml # Lint, typecheck, тесты против реального Postgres
 ```
 
-## 🚀 Как начать
+## 🚀 Быстрый старт разработки
+
+```bash
+pnpm install
+pnpm db:up            # Postgres + Redis (docker compose)
+cp .env.example .env
+pnpm migrate          # применить миграции
+pnpm --filter @padelio/api seed   # тестовые данные (опционально)
+pnpm test             # включая конкурентные тесты броней
+pnpm --filter @padelio/api dev    # API на :3000
+```
+
+## 📖 Как читать проект
 
 1. Прочитай [PRD](docs/14-prd.md) — это сжатая выжимка всего анализа.
 2. Детали по каждой теме — в соответствующем документе `docs/`.
-3. Порядок разработки — в [Roadmap](docs/11-roadmap.md).
+3. Порядок разработки — в [Roadmap](docs/11-roadmap.md); стек — в [док. 15](docs/15-tech-stack.md).
