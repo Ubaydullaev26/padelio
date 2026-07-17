@@ -29,6 +29,13 @@ Padelio — это сервис, который соединяет игроко�
 | 12 | [Риски и проблемы](docs/12-risks.md) | Конфликты броней, двойные оплаты, возвраты, нагрузка |
 | 13 | [Идеи для будущего](docs/13-future-ideas.md) | 60+ функций: ИИ, матчмейкинг, турниры, соцсеть |
 | 14 | [PRD — финальная спецификация](docs/14-prd.md) | Основа всей дальнейшей разработки |
+| 15 | [Технологический стек](docs/15-tech-stack.md) | Выбор стека с обоснованием и альтернативами |
+| 16 | [Дизайн-концепция экранов](docs/16-screen-specs.md) | Wireframe-спецификации 6 ключевых экранов MVP |
+
+### Sprint 0 — полевая валидация (в работе)
+
+Материалы для проверки гипотез до написания кода — в [`docs/sprint-0/`](docs/sprint-0/):
+[план и gates](docs/sprint-0/README.md) · [интервью с клубами](docs/sprint-0/club-interview-script.md) · [интервью с игроками](docs/sprint-0/player-interview-script.md) · [перепись клубов](docs/sprint-0/club-census-template.md) · [шаблон LOI](docs/sprint-0/loi-template.md) · [чек-лист юристу](docs/sprint-0/legal-checklist.md)
 
 ---
 
